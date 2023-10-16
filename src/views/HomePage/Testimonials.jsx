@@ -37,6 +37,7 @@ function Testimonials() {
             <Carousel
               autoplay = {true}
               loop = {true}
+              className='relative z-40'
             >
               {
                 TestimonialsData.map((feedback) => (

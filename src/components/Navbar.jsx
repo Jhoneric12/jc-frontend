@@ -25,7 +25,6 @@ function Navbar() {
   
   const openDrawer = () => {
     setOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeDrawer = () => {
@@ -79,7 +78,7 @@ function Navbar() {
             onClose={closeDrawer}
             placement='left'
             overlay={true}
-            className='fixed top-0 h-screen md:hidden w-2/3 flex flex-col justify-between rounded-[8px] left-0'
+            className='fixed top-0 h-screen md:hidden flex flex-col justify-between rounded-[8px] left-0 bg-blue-gray-200 w-full'
             style={{
               overflow: 'hidden',
               left: '0',

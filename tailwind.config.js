@@ -9,7 +9,7 @@ module.exports = withMT({
       'secondary-green': '#C7F2A4',
       'font-color': '#232323',
       'puti': '#F5FAF0',
-      'ulra-puti': '#FFFFFF',
+      'ultra-puti': '#FFFFFF',
       'semi-black': '#5B5B5B'
     },
     fontSize: {
