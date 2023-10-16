@@ -22,6 +22,7 @@ function Navbar() {
   }
 
   window.addEventListener('scroll', handleFix)
+  
   const openDrawer = () => {
     setOpen(true);
     document.body.style.overflow = 'hidden';

@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import ServicesIntro from '../views/ServicesPage/ServicesIntro'
 import ServicesOffer from '../views/ServicesPage/ServicesOffer'
+import Footer from '.././components/Footer'
 
 function Services() {
   return (
@@ -9,6 +10,7 @@ function Services() {
       <Navbar/>
       <ServicesIntro/>
       <ServicesOffer/>
+      <Footer/>
     </main>
   )
 }
