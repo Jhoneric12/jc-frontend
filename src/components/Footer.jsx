@@ -5,8 +5,8 @@ function Footer() {
   return (
     <footer className='flex flex-col bg-semi-black text-puti font-light text-superSmall p-10'>
         
-        <div>
-            <div className='border-b border-[rgba(255,255,255,0.30)] py-6 leading-7'>
+        <div className='lg:flex lg:justify-around mb-6'>
+            <div className='border-b border-[rgba(255,255,255,0.30)] py-6 leading-7 lg:w-[20%] lg:border-b-0 lg:border-r lg:px-4'>
                 <div className='mb-4'>
                     <img src={JcLogo} alt="JC LOGO" className='w-[3.5rem] h-[3.5rem]'/>
                 </div>
@@ -14,7 +14,7 @@ function Footer() {
                     JC’s Skin Works Dermatology Clinic in Angono, Rizal provides affordable dermatologic and cosmetic services by certified dermatologist.
                 </p>
             </div>
-            <div className='border-b border-[rgba(255,255,255,0.30)] py-6 leading-7'>
+            <div className='border-b border-[rgba(255,255,255,0.30)] py-6 leading-7 lg:w-[20%]  lg:border-b-0 lg:border-r'>
                 <div><p>We are welcoming you</p></div>
                 <div><h1 className='text-xSmall font-semibold w-[60%]'>Want to visit our clinic?</h1></div>
                 <div>
@@ -22,7 +22,7 @@ function Footer() {
                     <p>10am - 6pm</p>
                 </div>
             </div>
-            <div className='border-b border-[rgba(255,255,255,0.30)] py-6 leading-7'>
+            <div className='border-b border-[rgba(255,255,255,0.30)] py-6 leading-7 lg:w-[20%] lg:border-b-0 lg:border-r'>
                 <div className='mb-3'><p>Important Link</p></div>
                 <div className='grid grid-cols-2 grid-rows-3'>
                     <a href="">Facebook</a>
@@ -33,7 +33,7 @@ function Footer() {
                     <a href="">Privacy Policy</a>
                 </div>
             </div>
-            <div className='py-6 leading-7'>
+            <div className='py-6 leading-7 lg:w-[20%] lg:border-b-0'>
                 <div className='mb-3'>
                     <p>Say hello to us</p>
                     <p>jcmesias@yahoo.com</p>
@@ -44,6 +44,9 @@ function Footer() {
                 </div>
             </div>
         </div>
+        {/* <div className='text-center border-t border-solid border-[rgba(255,255,255,0.5)] flex justify-center items-center '>
+            <div>© 2023, All RIghts Reserved</div>
+        </div> */}
     </footer>
   )
 }
