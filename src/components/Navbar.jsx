@@ -51,7 +51,7 @@ function Navbar() {
         </ul>
         <div className="buttons hidden md:flex md:justify-around md:w-[25%] lg:flex lg:justify-around lg:w-[25%]">
             <Button
-            btnText='Sign In'
+            btnText='Sign Up'
             bgColor='bg-puti'
             borderStyle='border-solid'
             borderColor='border-[#494949]'
@@ -105,7 +105,7 @@ function Navbar() {
                     <div>
                         <div className="buttons flex flex-col items-center mt-6 md:mt-48 gap-6 w-full">
                             <Button
-                            btnText='Sign In'
+                            btnText='Sign Up'
                             bgColor='bg-puti'
                             borderStyle='border-solid'
                             borderColor='border-[#494949]'
