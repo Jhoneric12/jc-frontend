@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import SectionTitle from '../../components/SectionTitle'
 import TestimonialsData from '../../dummyData/TestimonialsData'
 import { Carousel } from '@material-tailwind/react'
-import '../../styles/Testimonials.scss'
 
 function Testimonials() {
 
@@ -56,7 +55,7 @@ function Testimonials() {
             <div className='flex gap-6 flex-wrap justify-center lg:justify-around lg:flex-nowrap'>
               {
                 TestimonialsData.map((feedback) => (
-                  <div className='testimonials-card md:bg-[#ffffff] md:p-7 w-[47%] md:rounded-[8px] lg:w-[30%] lg:p-10' key={feedback.id}>
+                  <div className='drop-shadow-lg md:bg-[#ffffff] md:p-7 w-[47%] md:rounded-[8px] lg:w-[30%] lg:p-10' key={feedback.id}>
                     <div className='md:flex md:gap-6'>
                       <img src={feedback.image} alt="Image" className='w-[3.5rem] h-[3.5rem]'/>
                       <p className='md:text-xSmall md:italic'>{feedback.message}</p>
