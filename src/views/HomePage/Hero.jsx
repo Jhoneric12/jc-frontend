@@ -2,7 +2,7 @@ import React from 'react'
 import {FaRegCalendarDays} from 'react-icons/fa6'
 import {ImAidKit} from 'react-icons/im'
 import Button from '../../components/Button'
-import Doctor from '../../assets/doctor.png'
+import Doctor from '../../assets/HomepageImg/doctor.png'
 
 function Hero() {
 

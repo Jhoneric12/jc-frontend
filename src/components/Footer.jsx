@@ -1,5 +1,5 @@
 import React from 'react'
-import JcLogo from '../assets/jcslogo.png'
+import JcLogo from '../assets/HomepageImg/jcslogo.png'
 
 function Footer() {
   return (

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import JcLogo from '../assets/jcslogo.png';
-import JcsLogo from '../assets/jcslogo.png'
+import JcLogo from '../assets/HomepageImg/jcslogo.png';
+import JcsLogo from '../assets/HomepageImg/jcslogo.png'
 import { TbMenuDeep } from 'react-icons/tb';
 import { MdClose } from 'react-icons/md';
 import { Drawer } from '@material-tailwind/react';
 import '../styles/Navbar.scss';
 import Button from './Button';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [open, setOpen] = useState(false);    
@@ -31,6 +32,13 @@ function Navbar() {
     setOpen(false);
     document.body.style.overflow = 'auto'
   };
+
+  // Navigate to Login page
+  const navigate = useNavigate();
+
+  const navigateLogin = () => {
+    navigate('/login');
+  }
 
   return (
     <nav className={ isfix ? 'nav-bar z-50 bg-puti w-full px-6 py-3 md:flex md:justify-around md:w-[full] lg:px-12 flex flex-row items-center justify-between lg:justify-around fixed top-0 duration-300 ' : 
@@ -58,6 +66,7 @@ function Navbar() {
             borderWeight='border'
             />
             <Button
+            handleClick={navigateLogin}
             btnText={'Log In'}
             bgColor={'bg-primary-green'}
             borderColor={'bg-primary-green'}

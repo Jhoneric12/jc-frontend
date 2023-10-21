@@ -1,6 +1,6 @@
-import Marlon from '../assets/Marlon.png'
-import Timo from '../assets/Temote.png'
-import Me from '../assets/Me.png'
+import Marlon from '../assets/HomepageImg/Marlon.png'
+import Timo from '../assets/HomepageImg/Temote.png'
+import Me from '../assets/HomepageImg/Me.png'
 
 export default [
     {

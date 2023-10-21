@@ -1,8 +1,8 @@
-import Niacinamide from '../assets/Niacinamide.png'
-import Triamcilone from '../assets/Triamcinolone.png'
-import Acnecort from '../assets/Acnecort Cream.png'
-import CleansingToner from '../assets/Cleansing Toner.png'
-import AcneToner from '../assets/Acne Toner.png'
+import Niacinamide from '../assets/HomepageImg/Niacinamide.png'
+import Triamcilone from '../assets/HomepageImg/Triamcinolone.png'
+import Acnecort from '../assets/HomepageImg/Acnecort Cream.png'
+import CleansingToner from '../assets/HomepageImg/Cleansing Toner.png'
+import AcneToner from '../assets/HomepageImg/Acne Toner.png'
 
 
 export default [

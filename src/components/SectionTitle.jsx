@@ -1,5 +1,5 @@
 import React from 'react'
-import LineTitle from '../assets/TItleLine.png'
+import LineTitle from '../assets/HomepageImg/TItleLine.png'
 
 function SectionTitle( { title, subTitle } ) {
   return (

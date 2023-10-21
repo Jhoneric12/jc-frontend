@@ -1,6 +1,6 @@
 import React from 'react'
 import SectionTitle from '../../components/SectionTitle'
-import DermImage from '../../assets/Mesias.png'
+import DermImage from '../../assets/HomepageImg/Mesias.png'
 
 function Dermatologist() {
   return (

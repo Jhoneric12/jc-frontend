@@ -1,8 +1,8 @@
-import Consultation from '../assets/consultation.png'
-import SkinCare from '../assets/skincare.png'
-import BodyTreatment from '../assets/Woman body.png'
-import Nose from '../assets/Nose.png'
-import Line from '../assets/TItleLine.png'
+import Consultation from '../assets/HomepageImg/consultation.png'
+import SkinCare from '../assets/HomepageImg/skincare.png'
+import BodyTreatment from '../assets/HomepageImg/Woman body.png'
+import Nose from '../assets/HomepageImg/Nose.png'
+import Line from '../assets/HomepageImg/TItleLine.png'
 
 export default [
     {
