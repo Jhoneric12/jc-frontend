@@ -122,6 +122,7 @@ function Navbar() {
                             width={'w-3/4'}
                             />
                             <Button
+                            handleClick={navigateLogin}
                             btnText={'Log In'}
                             bgColor={'bg-primary-green'}
                             borderColor={'bg-primary-green'}
