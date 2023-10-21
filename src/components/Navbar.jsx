@@ -41,7 +41,7 @@ function Navbar() {
   }
 
   return (
-    <nav className={ isfix ? 'nav-bar z-50 bg-puti w-full px-6 py-3 md:flex md:justify-around md:w-[full] lg:px-12 flex flex-row items-center justify-between lg:justify-around fixed top-0 duration-300 ' : 
+    <nav className={ isfix ? 'nav-bar z-50 bg-puti w-full px-6 py-4 md:flex md:justify-around md:w-[full] lg:px-12 flex flex-row items-center justify-between lg:justify-around fixed top-0 duration-300 ' : 
     'nav-bar z-50 bg-puti w-full px-6 py-3 md:flex md:justify-around md:w-[full] lg:px-12 flex flex-row items-center justify-between lg:justify-around relative'}>
         <div className="logo lg:w-[25%]">
             <img
