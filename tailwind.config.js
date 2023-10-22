@@ -10,7 +10,8 @@ module.exports = withMT({
       'font-color': '#232323',
       'puti': '#F5FAF0',
       'ultra-puti': '#FFFFFF',
-      'semi-black': '#5B5B5B'
+      'semi-black': '#5B5B5B',
+      'border-color': '#C1C1C1'
     },
     fontSize: {
       'xLarge': '3rem',
@@ -21,6 +22,7 @@ module.exports = withMT({
       'xxSmall': '0.875rem',
       'superSmall': '0.75rem'
     },
+    
     extend: {},
   },
   plugins: [],

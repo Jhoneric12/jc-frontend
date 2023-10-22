@@ -5,6 +5,7 @@ import Label from '../../components/Label'
 import Button from '../../components/Button'
 import FormTitle from '../../components/FormTitle'
 import HeaderLogo from '../../components/HeaderLogo'
+import { Link } from 'react-router-dom'
 
 function LogInForm() {
   return (
@@ -17,7 +18,7 @@ function LogInForm() {
                 <HeaderLogo />
             </div>
         </div>
-        <form action="" className='w-full bg-ultra-puti drop-shadow-lg py-10 px-5 rounded-[8px] flex flex-col gap-4 md:w-[80%] lg:w-[35%]'>
+        <form action="" className='w-full bg-ultra-puti drop-shadow-xl py-10 px-5 rounded-[8px] flex flex-col gap-4 md:w-[80%] lg:w-[35%]'>
             <div className='flex justify-center mb-4'>
                 <FormTitle formTitle={'Log In'} fontWeight={'font-bold'} fontSize={'text-small'}/>
             </div>
@@ -33,7 +34,7 @@ function LogInForm() {
                 <Button btnText={'Log In'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'}/>
             </div>
             <div>
-                <li className='text-superSmall list-none'>Don't Have an Account? <span className='text-primary-green'><a href="">Register</a></span></li>
+                <li className='text-superSmall list-none'>Don't Have an Account? <span className='text-primary-green'><Link to={'/signup'}>Resigster</Link></span></li>
             </div>
         </form>
     </section>
