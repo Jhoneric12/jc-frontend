@@ -40,6 +40,10 @@ function Navbar() {
     navigate('/login');
   }
 
+  const navigateSignUp = () => {
+    navigate('/signup');
+  }
+
   return (
     <nav className={ isfix ? 'nav-bar z-50 bg-puti w-full px-6 py-4 md:flex md:justify-around md:w-[full] lg:px-12 flex flex-row items-center justify-between lg:justify-around fixed top-0 duration-300 ' : 
     'nav-bar z-50 bg-puti w-full px-6 py-3 md:flex md:justify-around md:w-[full] lg:px-12 flex flex-row items-center justify-between lg:justify-around relative'}>
@@ -59,6 +63,7 @@ function Navbar() {
         </ul>
         <div className="buttons hidden md:flex md:justify-around md:w-[25%] lg:flex lg:justify-around lg:w-[25%]">
             <Button
+            handleClick={navigateSignUp}
             btnText='Sign Up'
             bgColor='bg-puti'
             borderStyle='border-solid'
@@ -114,6 +119,7 @@ function Navbar() {
                     <div>
                         <div className="buttons flex flex-col items-center mt-6 md:mt-48 gap-6 w-full">
                             <Button
+                             handleClick={navigateSignUp}
                             btnText='Sign Up'
                             bgColor='bg-puti'
                             borderStyle='border-solid'

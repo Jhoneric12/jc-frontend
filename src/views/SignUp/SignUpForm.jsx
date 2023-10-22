@@ -4,7 +4,7 @@ import HeaderLogo from '../../components/HeaderLogo'
 import Input from '../../components/Input'
 import Label from '../../components/Label'
 import Button from '../../components/Button'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 function SignUpForm() {
 
@@ -35,7 +35,7 @@ function SignUpForm() {
             </div>
             <div>
                 <Label inputLabel={'Username'}/>
-                <Input inputType={'text'} inputName={'text'} placeHolder={'Username'}/>
+                <Input inputType={'text'} inputName={'username'} placeHolder={'Username'}/>
             </div>
             <div>
                 <Label inputLabel={'Password'}/>
@@ -48,7 +48,9 @@ function SignUpForm() {
             <div className='mt-4'>
                 <Button btnText={'Sign Up'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'} handleClick={navigateRegister}/>
             </div>
-            
+            <div>
+                <li className='text-superSmall list-none'>Already Have an Account? <span className='text-primary-green'><Link to={'/login'}>Login</Link></span></li>
+            </div>
         </form>
     </section>
   )
