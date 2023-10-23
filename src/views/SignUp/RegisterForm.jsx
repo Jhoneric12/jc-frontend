@@ -57,15 +57,13 @@ function RegisterForm() {
                 <Label inputLabel={'Home Address'}/>
                 <Input inputType={'text'} inputName={'homeAdd'} placeHolder={'Home Address'}/>
             </div>
-            <div className='flex justify-around gap-2'>
-                <div className='w-[70%]'>
-                    <Label inputLabel={'Contact Number'}/>
-                    <Input inputType={'text'} inputName={'contact'} placeHolder={'Contact Number'}/>
-                </div>
-                <div className='w-[70%]'>
-                    <Label inputLabel={'Religion (optional)'}/>
-                    <Input inputType={'text'} inputName={'religion'} placeHolder={'Religion'}/>
-                </div>
+            <div>
+                <Label inputLabel={'Contact Number'}/>
+                <Input inputType={'text'} inputName={'contact'} placeHolder={'Contact Number'}/>
+            </div>
+            <div>
+                <Label inputLabel={'Religion (optional)'}/>
+                <Input inputType={'text'} inputName={'religion'} placeHolder={'Religion'}/>
             </div>
             <div className='mt-4'>
                 <Button btnText={'Next'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'}/>
