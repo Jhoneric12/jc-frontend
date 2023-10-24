@@ -5,7 +5,7 @@ import '../../styles/Services.scss'
 
 function Services() {
   return (
-    <div className='py-10 bg-puti'>
+    <div className='py-10 bg-puti text-font-color'>
         <div className="title">
             <SectionTitle
                 title={'Services'}

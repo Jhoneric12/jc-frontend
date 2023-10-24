@@ -7,7 +7,7 @@ import Doctor from '../../assets/HomepageImg/doctor.png'
 function Hero() {
 
   return (
-    <section className='hero w-full h-screen px-7 flex items-center justify-center pb-16'>
+    <section className='hero w-full h-screen px-7 flex items-center justify-center pb-16 text-font-color'>
         <div className="desc-container flex justify-center items-center">
             <div className="hero-title lg:w-[80%]">
                 <h1 className='font-extrabold text-large text-center mb-6 md:text-xLarge lg:text-left'>Working together to bring out the beauty within.</h1>

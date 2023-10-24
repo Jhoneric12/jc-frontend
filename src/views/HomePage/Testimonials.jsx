@@ -20,7 +20,7 @@ function Testimonials() {
   },[])
 
   return (
-    <section className='bg-puti p-10  '>
+    <section className='bg-puti p-10 text-font-color'>
         <div className="title mb-10">
             <SectionTitle
                 title={'Testimonials'}

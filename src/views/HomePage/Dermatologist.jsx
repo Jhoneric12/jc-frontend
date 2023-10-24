@@ -4,7 +4,7 @@ import DermImage from '../../assets/HomepageImg/Mesias.png'
 
 function Dermatologist() {
   return (
-    <section className='dermatologist w-full flex flex-col gap-10 py-10 md:items-center'>
+    <section className='dermatologist w-full flex flex-col gap-10 py-10 md:items-center text-font-color'>
         <div>
             <SectionTitle
                 title={'Dermatologist'}

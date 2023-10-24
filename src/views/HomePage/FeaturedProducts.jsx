@@ -5,7 +5,7 @@ import Products from '../../dummyData/FeaturedProducts'
 
 function FeaturedProducts() {
   return (
-    <section className='py-10 w-full flex justify-center items-center bg-puti md:py-10 lg:py-10'>
+    <section className='py-10 w-full flex justify-center items-center bg-puti md:py-10 lg:py-10 text-font-color'>
       <Carousel autoplay={true} loop={true} className='relative z-40'>
         {
             Products.map((product) => (

@@ -1,3 +1,3 @@
 export default [
-    'Single', 'Married'
+    'Single', 'Married', 'Widowed'
 ];

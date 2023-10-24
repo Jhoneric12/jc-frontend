@@ -4,7 +4,7 @@ import Button from '../../components/Button'
 
 function AboutUs() {
   return (
-    <section className='w-full bg-secondary-green flex flex-col items-center p-10'>
+    <section className='w-full bg-secondary-green flex flex-col items-center p-10 text-font-color'>
         <div className="title">
             <SectionTitle
                 title={'About Us'}
@@ -21,7 +21,7 @@ function AboutUs() {
                 className=' w-[20rem] h-[13rem] border border-solid border-black md:w-[35rem] md:h-[25rem] lg:w-[33rem] lg:h-[20rem]'
                 referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <div className="clinic-description text-center   font-light text-xSmall flex flex-col gap-8 w-full items-center md:w-[70%] lg:w-[50%] lg:text-left lg:items-start">
+            <div className="clinic-description text-center font-light text-xSmall flex flex-col gap-8 w-full items-center md:w-[70%] lg:w-[50%] lg:text-left lg:items-start">
                 <p>
                     Diseases of the skin acquire its actuality with each passing day. JC’s Skin Works Dermatology is a centre of excellence in the diagnosis and treatment of skin conditions.
                 </p>
