@@ -1,11 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
 import FormTitle from '../../components/FormTitle'
 import HeaderLogo from '../../components/HeaderLogo'
 import Input from '../../components/Input'
 import Label from '../../components/Label'
 import Button from '../../components/Button'
+import Dropdown from '../../components/Dropdown'
+import GenderData from '../../dummyData/GenderData'
+import CivilStatusData from '../../dummyData/CivilStatusData'
 
 function RegisterForm() {
+    
+    const [selectedGender, setSelectedGender] = useState();
+    const [seelctedCS, setSelectedCS] = useState();
+
   return (
    <section className='flex justify-center items-center flex-col py-10 px-6 lg:flex-row lg:justify-around'>
          <div>
@@ -43,14 +51,15 @@ function RegisterForm() {
                     <Input inputType={'text'} inputName={'age'} placeHolder={'Age'}/>
                 </div>
             </div>
-            <div className='flex justify-around gap-2'>
-                <div className='w-[70%]'>
+            <div className='flex justify-around gap-2 flex-col md:flex-row text-xxSmall md:text-xSmall'>
+                <div className='w-full'>
                     <Label inputLabel={'Civil Status'}/>
-                    <Input inputType={'dropdown'} inputName={'civiStatus'} placeHolder={'Civil Status'}/>
+                    <Dropdown select={'--Select Civil Status'} selectedValue={seelctedCS} options={CivilStatusData} onSelectedChange={setSelectedCS}/>
                 </div>
-                <div className='w-[70%]'>
+                <div className='w-full flex flex-col'>
                     <Label inputLabel={'Gender'}/>
-                    <Input inputType={'dropdown'} inputName={'gender'} placeHolder={'Gender'}/>
+                    {/* <Input inputType={'dropdown'} inputName={'gender'} placeHolder={'Gender'}/> */}
+                    <Dropdown select={'--Select Gender'} selectedValue={selectedGender} options={GenderData} onSelectedChange={setSelectedGender}/>
                 </div>
             </div>
             <div>
