@@ -46,7 +46,7 @@ function RegisterForm() {
                     <Label inputLabel={'Birthdate'}/>
                     <Input inputType={'date'} inputName={'bDate'}/>
                 </div>
-                <div className='w-[70%]'>
+                <div className='w-[30%]'>
                     <Label inputLabel={'Age'}/>
                     <Input inputType={'text'} inputName={'age'} placeHolder={'Age'}/>
                 </div>
