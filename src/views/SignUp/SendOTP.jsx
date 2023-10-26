@@ -8,7 +8,7 @@ import Button from '../../components/Button'
 function SendOTP() {
   return (
     <section className='h-screen flex justify-center items-center py-10 px-6'>
-        <div className='w-full'>
+        <div className='w-full md:w-[60%]'>
             <div className='flex items-start flex-col mb-6'>
                 <FormTitle formTitle={'OTP Verification'} fontWeight={'font-bold'} fontSize={'text-small'}/>
             </div>
