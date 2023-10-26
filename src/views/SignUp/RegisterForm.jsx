@@ -8,8 +8,16 @@ import Button from '../../components/Button'
 import Dropdown from '../../components/Dropdown'
 import GenderData from '../../dummyData/GenderData'
 import CivilStatusData from '../../dummyData/CivilStatusData'
+import { useNavigate } from 'react-router-dom'
 
 function RegisterForm() {
+
+    // Navigate to Review information page
+    const navigate = useNavigate();
+
+    const navigateReviewInformation = () => {
+        navigate('/review-information');
+    }
     
     const [selectedGender, setSelectedGender] = useState();
     const [seelctedCS, setSelectedCS] = useState();
@@ -44,7 +52,7 @@ function RegisterForm() {
             <div className='flex justify-around gap-2'>
                 <div className='w-[70%]'>
                     <Label inputLabel={'Birthdate'}/>
-                    <Input inputType={'date'} inputName={'bDate'}/>
+                    <Input inputType={'date'} inputName={'bDate'}   />
                 </div>
                 <div className='w-[30%]'>
                     <Label inputLabel={'Age'}/>
@@ -75,7 +83,7 @@ function RegisterForm() {
                 <Input inputType={'text'} inputName={'religion'} placeHolder={'Religion'}/>
             </div>
             <div className='mt-4'>
-                <Button btnText={'Next'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'}/>
+                <Button btnText={'Next'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'} handleClick={navigateReviewInformation}/>
             </div>
         </form>
    </section>

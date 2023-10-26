@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Loginpage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import RegisterPage from './pages/RegisterPage'
+import ReviewInformation from './pages/ReviewInformation'
+import SendOTPpage from './pages/SendOTPpage'
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
           <Route path='/login' element={<Loginpage/>}/>
           <Route path='/signup' element={<SignUpPage/>}/>
           <Route path='/register' element={<RegisterPage/>}/>
+          <Route path='/review-information' element={<ReviewInformation/>}/>
+          <Route path='/send-otp' element={<SendOTPpage/>}/>
         </Routes>
       </Router>
     </div>
