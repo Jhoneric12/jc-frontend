@@ -8,6 +8,7 @@ import SignUpPage from './pages/SignUpPage'
 import RegisterPage from './pages/RegisterPage'
 import ReviewInformation from './pages/ReviewInformation'
 import SendOTPpage from './pages/SendOTPpage'
+import EnterOTPpage from './pages/EnterOTPpage'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/register' element={<RegisterPage/>}/>
           <Route path='/review-information' element={<ReviewInformation/>}/>
           <Route path='/send-otp' element={<SendOTPpage/>}/>
+          <Route path='/enter-otp' element={<EnterOTPpage/>}/>
         </Routes>
       </Router>
     </div>

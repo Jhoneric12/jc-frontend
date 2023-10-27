@@ -16,7 +16,7 @@ function RegisterForm() {
     const navigate = useNavigate();
 
     const navigateReviewInformation = () => {
-        navigate('/review-information');
+        navigate('/send-otp');
     }
     
     const [selectedGender, setSelectedGender] = useState();
