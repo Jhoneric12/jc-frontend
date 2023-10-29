@@ -6,14 +6,20 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 import HeaderLogo from '../../components/HeaderLogo'
 import { useNavigate } from 'react-router-dom'
+import { useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
 
 function SendOTP() {
 
+    const signUpData = useSignUpStore((state) => state.signUpData);
+    
     // Navigate to eneter OTP page
     const navigate = useNavigate();
     const navigateEnterOTP = () => {
         navigate('/enter-otp');
+        console.log(signUpData);
     }
+
+
   return (
     <section className='h-screen flex flex-col items-center justify-center py-10 px-6 lg:flex-row lg:justify-around'>
         <div className='mb-4 md:mb-6'>
