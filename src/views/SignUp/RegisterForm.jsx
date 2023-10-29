@@ -42,9 +42,6 @@ function RegisterForm() {
         navigate('/send-otp');
     }
     
-    const [selectedGender, setSelectedGender] = useState();
-    const [seelctedCS, setSelectedCS] = useState();
-
   return (
    <section className='flex justify-center items-center flex-col py-10 px-6 lg:flex-row lg:justify-around'>
          <div>

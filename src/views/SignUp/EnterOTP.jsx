@@ -20,7 +20,7 @@ function EnterOTP() {
             </div>
             <div>
                 <Label inputLabel={'Enter OTP'}/>
-                <Input placeHolder={'Enter OTP'} inputType={'text'}/>
+                <Input placeHolder={'Enter OTP'} inputType={'text'} center={'text-center'}/>
                 <p className='text-[0.625rem] mt-2 mb-4 md:text-superSmall'>Didn't received a code?</p>
                 <p className='text-primary-green text-[0.625rem] mt-1 hover:cursor-pointer md:text-superSmall'>Resend Code</p>
                 <p className='text-primary-green text-[0.625rem] mt-1  mb-6 hover:cursor-pointer md:text-superSmall'>Use phone number instead</p>
