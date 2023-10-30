@@ -13,7 +13,7 @@ function EnterOTP() {
             <HeaderLogo/>
         </div>
         <div className='w-full md:w-1/2 lg:w-[40%]'>
-            <form action="" className='py-10 px-5 bg-ultra-puti drop-shadow-xl rounded-[8px]'>
+            <form action="" className='py-10 px-5 bg-ultra-puti drop-shadow-xl rounded-[8px]  border-t-primary-green border-solid border-t-4'>
             <div className='mb-6'>
                 <FormTitle formTitle={'Enter your One-Time Pin (OTP)'} fontWeight={'font-bold'} fontSize={'text-small'}/>
                 <p className='text-superSmall md:text-xxSmall font-light text-border-color mt-1'>We have sent the OTP in your email address</p>

@@ -27,7 +27,7 @@ function SendOTP() {
             <HeaderLogo/>
         </div>
         <div className='w-full md:w-[60%] lg:w-[40%]'>
-            <form action="" className='flex flex-col  bg-ultra-puti px-5 py-10 rounded-[8px] drop-shadow-xl'>
+            <form action="" className='flex flex-col  bg-ultra-puti px-5 py-10 rounded-[8px] drop-shadow-xl  border-t-primary-green border-solid border-t-4'>
                 <div className='flex items-start flex-col mb-6'>
                     <FormTitle formTitle={'OTP Verification'} fontWeight={'font-bold'} fontSize={'text-small'}/>
                     <p className='text-superSmall md:text-xxSmall font-light text-border-color mt-1'>Verify your account details.</p>

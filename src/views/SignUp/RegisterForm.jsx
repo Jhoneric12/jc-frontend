@@ -30,6 +30,7 @@ function RegisterForm() {
         saveToLocalStorage('signUpData', signUpData);
     }, [signUpData]);
 
+    // Save to state management
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setSignUpData({ ...signUpData, [name]: value });
@@ -52,7 +53,7 @@ function RegisterForm() {
                 <HeaderLogo />
             </div>
         </div>
-        <form action="" className='w-full bg-ultra-puti drop-shadow-xl py-10 px-5 rounded-[8px] flex flex-col gap-4 md:w-[80%] lg:w-[40%]'>
+        <form action="" className='w-full bg-ultra-puti drop-shadow-xl py-10 px-5 rounded-[8px] flex flex-col gap-4 md:w-[80%] lg:w-[40%] border-t-primary-green border-solid border-t-4'>
             <div className='flex items-start flex-col mb-4'>
                 <FormTitle formTitle={'Personal Information'} fontWeight={'font-bold'} fontSize={'text-small'}/>
                 <p className='text-superSmall md:text-xxSmall font-light text-border-color mt-1'>Provide information that is true and correct for medical purposes.</p>
@@ -82,12 +83,12 @@ function RegisterForm() {
             <div className='flex justify-around items-center gap-2 flex-col md:flex-row text-xxSmall md:text-xSmall'>
                 <div className='w-full'>
                     <Label inputLabel={'Civil Status'}/>
-                    <Dropdown select={'- Select Civil Status'} options={CivilStatusData} dropDownName={'civilStats'} selectedValue={signUpData.civilStats} selectedChange={handleInputChange}/>
+                    <Dropdown select={'-Select Civil Status-'} options={CivilStatusData} dropDownName={'civilStats'} selectedValue={signUpData.civilStats} selectedChange={handleInputChange}/>
                 </div>
                 <div className='w-full flex flex-col'>
                     <Label inputLabel={'Gender'}/>
                     {/* <Input inputType={'dropdown'} inputName={'gender'} placeHolder={'Gender'}/> */}
-                    <Dropdown select={'- Select Gender'}options={GenderData}  dropDownName={'gender'} selectedValue={signUpData.gender} selectedChange={handleInputChange}/>
+                    <Dropdown select={'-Select Gender-'}options={GenderData}  dropDownName={'gender'} selectedValue={signUpData.gender} selectedChange={handleInputChange}/>
                 </div>
             </div>
             <div>

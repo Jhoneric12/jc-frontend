@@ -26,6 +26,8 @@ function SignUpForm() {
         saveToLocalStorage('signUpData', signUpData);
     }, [signUpData]);
 
+
+    // Save to state management
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setSignUpData({ ...signUpData, [name]: value });
@@ -50,7 +52,7 @@ function SignUpForm() {
                 <HeaderLogo />
             </div>
         </div>
-        <form action="" className='w-full bg-ultra-puti drop-shadow-xl py-10 px-5 rounded-[8px] flex flex-col gap-4 md:w-[80%] lg:w-[35%]'>
+        <form action="" className='w-full bg-ultra-puti drop-shadow-xl py-10 px-5 rounded-[8px] flex flex-col gap-4 md:w-[80%] lg:w-[35%]  border-t-primary-green border-solid border-t-4'>
             <div className='flex justify-center mb-4'>
                 <FormTitle formTitle={'Create an Account'} fontWeight={'font-bold'} fontSize={'text-small'}/>
             </div>
