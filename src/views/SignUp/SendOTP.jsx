@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import FormTitle from '../../components/FormTitle'
 import OTPLogo from '../../assets/LogInAndSignUp/OTPLogo.png'
 import Label from '../../components/Label'
@@ -7,18 +7,37 @@ import Button from '../../components/Button'
 import HeaderLogo from '../../components/HeaderLogo'
 import { useNavigate } from 'react-router-dom'
 import { useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
+import axios from 'axios'
+
 
 function SendOTP() {
 
-    const signUpData = useSignUpStore((state) => state.signUpData);
-    
-    // Navigate to eneter OTP page
-    const navigate = useNavigate();
-    const navigateEnterOTP = () => {
-        navigate('/enter-otp');
-        console.log(signUpData);
+    const {signUpData, setSignUpData} = useSignUpStore();
+
+    // Store to state
+    const handleInputChange = (e) => {
+        const {name, value} = e.target;
+        setSignUpData( {...signUpData,
+            [name]: value} );
     }
 
+    // Navigate to eneter OTP page and send email
+    const navigate = useNavigate();
+
+    const navigateEnterOTP = async (e) => {
+
+        e.preventDefault();
+        navigate('/enter-otp');
+        // Send Email OTP
+        try {
+            const response = await axios.post('http://localhost:8000/api/send-mail-otp', {email_address: signUpData.emailAdd});
+            console.log(response);
+        }
+        catch (err) {
+            console.log(err);
+        }
+        console.log(signUpData);
+    }
 
   return (
     <section className='h-screen flex flex-col items-center justify-center py-10 px-6 lg:flex-row lg:justify-around'>
@@ -37,7 +56,7 @@ function SendOTP() {
                 </div>
                 <div>
                     <Label inputLabel={'Email Address'}/>
-                    <Input placeHolder={'Enter Email Address'} inputType={'email'}/>
+                    <Input placeHolder={'Enter Email Address'} inputType={'email'} inputName={'emailAdd'} handleInput={handleInputChange} inputValue={signUpData.emailAdd}/>
                     <p className='text-primary-green text-[0.625rem] mt-2  mb-6 hover:cursor-pointer md:text-superSmall'>Use phone number instead</p>
                     <Button btnText={'Send OTP'} bgColor={'bg-primary-green'} width={'w-full'} fontColor={'text-puti'} handleClick={navigateEnterOTP}/>
                 </div>

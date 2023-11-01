@@ -14,8 +14,8 @@ export const useSignUpStore = create((set) => ({
         civilStats: '',
         gender: '',
         homeAdd: '',
-        contactNumber: '',
-        religion: '',
+        contact: '',
+        religion: ''
     },
     setSignUpData: (newData) => set({signUpData: newData}),
 }));  
@@ -28,6 +28,8 @@ export function loadFromLocalStorage(key) {
     const data = window.localStorage.getItem(key);
     return data ? JSON.parse(data) : null;
 }
+
+
 
 // export function saveSignUpDataOnUnload(signUpData) {
 //     window.addEventListener('beforeunload', () => {

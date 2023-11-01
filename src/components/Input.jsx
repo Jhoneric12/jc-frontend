@@ -1,9 +1,11 @@
 import React from 'react'
 
 function Input({inputType, inputName, placeHolder, handleInput, inputValue, center}) {
+
   return (
     <div>
-      <input type={inputType}
+      <input 
+      type={inputType}
       name={inputName}
       placeholder={placeHolder} 
       onChange={handleInput} 

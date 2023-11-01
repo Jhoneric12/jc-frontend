@@ -8,6 +8,10 @@ import HeaderLogo from '../../components/HeaderLogo'
 import { Link } from 'react-router-dom'
 
 function LogInForm() {
+
+    // const handleClick = () => {
+    //     localStorage.removeItem('signUpData');
+    // }
   return (
     <section className='flex justify-center items-center flex-col px-6 py-10 h-screen lg:flex lg:flex-row lg:justify-around'>
         <div>

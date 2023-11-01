@@ -9,37 +9,23 @@ import Dropdown from '../../components/Dropdown'
 import GenderData from '../../dummyData/GenderData'
 import CivilStatusData from '../../dummyData/CivilStatusData'
 import { useNavigate } from 'react-router-dom'
-import { loadFromLocalStorage, saveToLocalStorage, useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
+import { useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
 
 function RegisterForm() {
     
+    const {signUpData, setSignUpData} = useSignUpStore();
 
-    const signUpData = useSignUpStore((state) => state.signUpData);
-    const setSignUpData = useSignUpStore((state) => state.setSignUpData);
-
-     // Load data drom local storage
-     useEffect(() => {
-        const storedData = loadFromLocalStorage('signUpData');
-        if (storedData) {
-            setSignUpData(storedData);
-          }
-    }, [setSignUpData]);
-
-    // Save data from local storage
-    useEffect(() => {
-        saveToLocalStorage('signUpData', signUpData);
-    }, [signUpData]);
-
-    // Save to state management
+    // Store to state
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setSignUpData({ ...signUpData, [name]: value });
-    };
-
+        const {name, value} = e.target;
+        setSignUpData( {...signUpData,
+            [name]: value} );
+    }
 
     // Navigate to Review information page
     const navigate = useNavigate();
     const navigateReviewInformation = () => {
+        console.log(signUpData);
         navigate('/send-otp');
     }
     
@@ -60,20 +46,20 @@ function RegisterForm() {
             </div>
             <div>
                 <Label inputLabel={'First Name'}/>
-                <Input inputType={'text'} inputName={'fName'} placeHolder={'First Name'} handleInput={handleInputChange} inputValue={signUpData.fName}/>
+                <Input inputType={'text'} inputName={'firstName'} placeHolder={'First Name'}  handleInput={handleInputChange} inputValue={signUpData.firstName}/>
             </div>
             <div>
                 <Label inputLabel={'Last Name'}/>
-                <Input inputType={'text'} inputName={'lName'} placeHolder={'Last Name'} handleInput={handleInputChange} inputValue={signUpData.lName}/>
+                <Input inputType={'text'} inputName={'lastName'} placeHolder={'Last Name'} handleInput={handleInputChange} inputValue={signUpData.lastName}/>
             </div>
             <div>
                 <Label inputLabel={'Middle Name (optional)'}/>
-                <Input inputType={'text'} inputName={'mName'} placeHolder={'Middle Name'} handleInput={handleInputChange} inputValue={signUpData.mName}/>
+                <Input inputType={'text'} inputName={'middleName'} placeHolder={'Middle Name'} handleInput={handleInputChange} inputValue={signUpData.middleName}/>
             </div>
             <div className='flex justify-around gap-2'>
                 <div className='w-[70%]'>
                     <Label inputLabel={'Birthdate'}/>
-                    <Input inputType={'date'} inputName={'bDate'} handleInput={handleInputChange} inputValue={signUpData.bDate}/>
+                    <Input inputType={'date'} inputName={'birthDate'} handleInput={handleInputChange} inputValue={signUpData.birthDate}/>
                 </div>
                 <div className='w-[30%]'>
                     <Label inputLabel={'Age'}/>
@@ -83,12 +69,12 @@ function RegisterForm() {
             <div className='flex justify-around items-center gap-2 flex-col md:flex-row text-xxSmall md:text-xSmall'>
                 <div className='w-full'>
                     <Label inputLabel={'Civil Status'}/>
-                    <Dropdown select={'-Select Civil Status-'} options={CivilStatusData} dropDownName={'civilStats'} selectedValue={signUpData.civilStats} selectedChange={handleInputChange}/>
+                    <Dropdown select={'-Select Civil Status-'} options={CivilStatusData} dropDownName={'civilStats'} selectedChange={handleInputChange} selectedValue={signUpData.civilStats}/>
                 </div>
                 <div className='w-full flex flex-col'>
                     <Label inputLabel={'Gender'}/>
                     {/* <Input inputType={'dropdown'} inputName={'gender'} placeHolder={'Gender'}/> */}
-                    <Dropdown select={'-Select Gender-'}options={GenderData}  dropDownName={'gender'} selectedValue={signUpData.gender} selectedChange={handleInputChange}/>
+                    <Dropdown select={'-Select Gender-'}options={GenderData}  dropDownName={'gender'} selectedChange={handleInputChange} selectedValue={signUpData.gender}/>
                 </div>
             </div>
             <div>
