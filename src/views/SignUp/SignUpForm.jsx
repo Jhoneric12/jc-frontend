@@ -54,7 +54,7 @@ import { useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
                 </div>
                 <div>
                     <Label inputLabel={'Confirm Password'}/>
-                    <Input inputType={'password'} inputName={'confirmPassWord'} placeHolder={'Password'} handleInput={handleInputChange} inputValue={signUpData.confirmPassWord}/>
+                    <Input inputType={'password'} inputName={'confirmPassword'} placeHolder={'Password'} handleInput={handleInputChange} inputValue={signUpData.confirmPassword}/>
                 </div>
                 <div className='mt-4'>
                     <Button btnText={'Next'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'} handleClick={navigateRegister}/>

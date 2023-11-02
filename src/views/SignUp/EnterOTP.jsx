@@ -6,41 +6,68 @@ import Input from '../../components/Input'
 import HeaderLogo from '../../components/HeaderLogo'
 import axios from 'axios'
 import { useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
+import SignUp from '../../Dialog/SignUp'
+import { useNavigate } from 'react-router-dom'
 
 function EnterOTP() {
 
     const signUpData = useSignUpStore((state) => state.signUpData);
+    const clearSignUpData = useSignUpStore((state) => state.clearSignUpData);
     const [otp, setOTP] = useState('');
+    const [errors, setErrors] = useState([]);
+    const [invalidOTP, setInvalidOTP] = useState('');
+    const [showDialog, setShowDialog] = useState(false);
 
     const handleInputChange = (e) => {
         setOTP(e.target.value);
     }
 
+    // Navigate to Login
+    const navigate = useNavigate();
+    const navigateLogin = () => {
+        navigate('/login');
+    }
+    // Submit OTP to backend
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        // Verify OTP and store patient data
         try {
-            // Verify OTP and store patient data
             const response = await axios.post('http://localhost:8000/api/enter-mail-otp', 
             {
-                entered_OTP: otp,
-                fName: signUpData.firstName,
-                mName: signUpData.middleName,
-                lName: signUpData.lastName,
-                bDate: signUpData.birthDate,
+                otp: otp,
+                first_name: signUpData.firstName,
+                middle_name: signUpData.middleName,
+                last_name: signUpData.lastName,
+                birth_date: signUpData.birthDate,
                 age: signUpData.age,
-                civilStats: signUpData.civilStats,
+                civil_status: signUpData.civilStats,
                 gender: signUpData.gender,
-                homeAdd: signUpData.homeAdd,
+                home_address: signUpData.homeAdd,
                 contact: signUpData.contact,
                 religion: signUpData.religion,
-                emailAdd: signUpData.emailAdd,
-                userName: signUpData.userName,
-                passWord: signUpData.passWord
+                email_address: signUpData.emailAdd,
+                username: signUpData.userName,
+                password: signUpData.passWord
             });
             console.log(response);
+
+            // Verify status
+            if (response && response.status === 200) {
+                clearSignUpData();
+                setInvalidOTP(response.data.message);
+            }
+
+            if (response.data.message === 'Account Created') {
+                setShowDialog(true);
+            }
         }
         catch (err) {
+            if (err.response && err.response.status === 422) {
+                const validationErrors =  err.response.data.errors;
+                const errorArray =  Object.values(validationErrors).flat();
+                setErrors(errorArray);
+            }
             console.log(err);
         }
         console.log(signUpData);
@@ -61,6 +88,12 @@ function EnterOTP() {
             <div>
                 <Label inputLabel={'Enter OTP'}/>
                 <Input placeHolder={'Enter OTP'} inputType={'text'} center={'text-center'} handleInput={handleInputChange} inputValue={otp}/>
+                <p className='text-[red] text-superSmall mt-1'>{invalidOTP}</p>
+                {
+                    errors.map((error, index) => (
+                        <li className='text-[red] text-superSmall mt-1' key={index}>{error}</li>
+                    ))
+                }
                 <p className='text-[0.625rem] mt-2 mb-4 md:text-superSmall'>Didn't received a code?</p>
                 <p className='text-primary-green text-[0.625rem] mt-1 hover:cursor-pointer md:text-superSmall'>Resend Code</p>
                 <p className='text-primary-green text-[0.625rem] mt-1  mb-6 hover:cursor-pointer md:text-superSmall'>Use phone number instead</p>
@@ -68,6 +101,14 @@ function EnterOTP() {
                 </div>
             </form>
         </div>
+        {
+            showDialog && (
+                <SignUp
+                    handleClick={navigateLogin}
+                    isOpen={showDialog}
+                />
+            )
+        }
     </section>
   )
 }

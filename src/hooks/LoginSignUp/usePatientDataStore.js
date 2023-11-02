@@ -18,6 +18,7 @@ export const useSignUpStore = create((set) => ({
         religion: ''
     },
     setSignUpData: (newData) => set({signUpData: newData}),
+    clearSignUpData: () => set((state) => ({...state, data: {}})),
 }));  
 
 export function saveToLocalStorage(key, data) {
@@ -28,11 +29,3 @@ export function loadFromLocalStorage(key) {
     const data = window.localStorage.getItem(key);
     return data ? JSON.parse(data) : null;
 }
-
-
-
-// export function saveSignUpDataOnUnload(signUpData) {
-//     window.addEventListener('beforeunload', () => {
-//       saveToLocalStorage('signUpData', signUpData);
-//     });
-//   }
