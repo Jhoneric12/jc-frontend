@@ -22,7 +22,7 @@ function LogInForm() {
                 <HeaderLogo />
             </div>
         </div>
-        <form action="" className='w-full bg-ultra-puti drop-shadow-xl py-10 px-5 rounded-[8px] flex flex-col gap-4 md:w-[80%] lg:w-[35%]'>
+        <form action="" className='w-full bg-ultra-puti drop-shadow-xl py-10 px-5 rounded-[8px]  border-t-primary-green border-solid border-t-4 flex flex-col gap-4 md:w-[80%] lg:w-[35%]'>
             <div className='flex justify-center mb-4'>
                 <FormTitle formTitle={'Log In'} fontWeight={'font-bold'} fontSize={'text-small'}/>
             </div>

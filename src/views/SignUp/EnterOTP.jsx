@@ -6,8 +6,9 @@ import Input from '../../components/Input'
 import HeaderLogo from '../../components/HeaderLogo'
 import axios from 'axios'
 import { useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
-import SignUp from '../../Dialog/SignUp'
+import SignUp from '../../Dialog/Modal'
 import { useNavigate } from 'react-router-dom'
+import Unlock from '../../assets/LogInAndSignUp/Unlock.png'
 
 function EnterOTP() {
 
@@ -58,11 +59,13 @@ function EnterOTP() {
                 setInvalidOTP(response.data.message);
             }
 
+            // Check if account is created
             if (response.data.message === 'Account Created') {
                 setShowDialog(true);
             }
         }
         catch (err) {
+            // Get validation error messages
             if (err.response && err.response.status === 422) {
                 const validationErrors =  err.response.data.errors;
                 const errorArray =  Object.values(validationErrors).flat();
@@ -106,6 +109,13 @@ function EnterOTP() {
                 <SignUp
                     handleClick={navigateLogin}
                     isOpen={showDialog}
+                    dialogImg={Unlock}
+                    title={'Account Created!'}
+                    description={'You are now registered in '}
+                    spanDesc={"Jc's Skin Works"}
+                    subDescription={'Explore and enjoy our services'}
+                    dialogSize={'sm'}
+                    btnText={"Got it"}
                 />
             )
         }
