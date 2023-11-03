@@ -1,10 +1,14 @@
 import React from 'react'
-import RegisterForm from '../views/SignUp/RegisterForm'
+import { lazy, Suspense } from 'react'
+import Loading from '../Spinners/Loading'
+const RegisterForm = lazy(() => import('../views/SignUp/RegisterForm'))
 
 function RegisterPage() {
   return (
     <main className='homepage'>
-        <RegisterForm/>
+        <Suspense fallback={<Loading/>}>
+          <RegisterForm/>
+        </Suspense>
     </main>
   )
 }

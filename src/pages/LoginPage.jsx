@@ -1,10 +1,14 @@
 import React from 'react'
-import LogInForm from '../views/LogIn/LogInForm'
+import { lazy, Suspense } from 'react'
+const LogInForm = lazy(() => import('../views/LogIn/LogInForm'))
+import Loading from '../Spinners/Loading'
 
 function LogIn() {
   return (
     <main className='homepage'>
-      <LogInForm/>
+      <Suspense fallback={<Loading/>}>
+        <LogInForm/>
+      </Suspense>
     </main>
   )
 }

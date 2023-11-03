@@ -1,10 +1,14 @@
 import React from 'react'
-import EnterOTP from '../views/SignUp/EnterOTP'
+import { lazy, Suspense } from 'react'
+import Loading from '../Spinners/Loading'
+const EnterOTP = lazy(() => import('../views/SignUp/EnterOTP'))
 
 function EnterOTPpage() {
   return (
     <main className='homepage'>
-        <EnterOTP/>
+        <Suspense fallback={<Loading/>}>
+          <EnterOTP/>
+        </Suspense>
     </main>
   )
 }

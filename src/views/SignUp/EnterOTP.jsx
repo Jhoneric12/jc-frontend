@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
 import FormTitle from '../../components/FormTitle'
 import Label from '../../components/Label'
 import Button from '../../components/Button'
@@ -6,9 +6,10 @@ import Input from '../../components/Input'
 import HeaderLogo from '../../components/HeaderLogo'
 import axios from 'axios'
 import { useSignUpStore } from '../../hooks/LoginSignUp/usePatientDataStore'
-import SignUp from '../../Dialog/Modal'
+const SignUp = lazy(() => import('../../Dialog/Modal'))
 import { useNavigate } from 'react-router-dom'
 import Unlock from '../../assets/LogInAndSignUp/Unlock.png'
+import Loading from '../../Spinners/Loading'
 
 function EnterOTP() {
 
@@ -104,6 +105,7 @@ function EnterOTP() {
                 </div>
             </form>
         </div>
+        <Suspense fallback={<Loading/>}>
         {
             showDialog && (
                 <SignUp
@@ -119,6 +121,7 @@ function EnterOTP() {
                 />
             )
         }
+        </Suspense>
     </section>
   )
 }

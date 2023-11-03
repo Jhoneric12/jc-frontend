@@ -24,7 +24,7 @@ function RegisterForm() {
 
     // Navigate to Review information page
     const navigate = useNavigate();
-    const navigateReviewInformation = () => {
+    const navigateSendOTP = () => {
         console.log(signUpData);
         navigate('/send-otp');
     }
@@ -90,7 +90,7 @@ function RegisterForm() {
                 <Input inputType={'text'} inputName={'religion'} placeHolder={'Religion'} handleInput={handleInputChange} inputValue={signUpData.religion}/>
             </div>
             <div className='mt-4'>
-                <Button btnText={'Next'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'} handleClick={navigateReviewInformation}/>
+                <Button btnText={'Next'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'} handleClick={navigateSendOTP}/>
             </div>
         </form>
    </section>
