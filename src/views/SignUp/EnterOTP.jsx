@@ -19,6 +19,7 @@ function EnterOTP() {
     const [errors, setErrors] = useState([]);
     const [invalidOTP, setInvalidOTP] = useState('');
     const [showDialog, setShowDialog] = useState(false);
+    const [isLoading, setLoading] = useState(false);
 
     const handleInputChange = (e) => {
         setOTP(e.target.value);
@@ -32,7 +33,7 @@ function EnterOTP() {
     // Submit OTP to backend
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+        setLoading(true);
         // Verify OTP and store patient data
         try {
             const response = await axios.post('http://localhost:8000/api/enter-mail-otp', 
@@ -57,6 +58,7 @@ function EnterOTP() {
             // Verify status
             if (response && response.status === 200) {
                 clearSignUpData();
+                setLoading(false);
                 setInvalidOTP(response.data.message);
             }
 
@@ -71,6 +73,7 @@ function EnterOTP() {
                 const validationErrors =  err.response.data.errors;
                 const errorArray =  Object.values(validationErrors).flat();
                 setErrors(errorArray);
+                setLoading(false);
             }
             console.log(err);
         }
@@ -122,6 +125,13 @@ function EnterOTP() {
             )
         }
         </Suspense>
+        {
+            isLoading && (
+                <div className='flex h-screen justify-center items-center absolute top-0 bottom-0 right-0 left-0 z-50 backdrop-blur-sm'> 
+                    <Loading/>
+                </div>
+            )
+        }
     </section>
   )
 }
