@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/Homepage.scss'
 import Input from '../../components/Input'
 import Label from '../../components/Label'
@@ -6,12 +6,38 @@ import Button from '../../components/Button'
 import FormTitle from '../../components/FormTitle'
 import HeaderLogo from '../../components/HeaderLogo'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function LogInForm() {
 
-    // const handleClick = () => {
-    //     localStorage.removeItem('signUpData');
-    // }
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handlePassChange = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post('http://localhost:8000/api/login', {
+                email: email,
+                password: password
+            });
+
+            const token = response.data.token;
+
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+
   return (
     <section className='flex justify-center items-center flex-col px-6 py-10 h-screen lg:flex lg:flex-row lg:justify-around'>
         <div>
@@ -28,11 +54,11 @@ function LogInForm() {
             </div>
             <div>
                 <Label inputLabel={'Username'}/>
-                <Input inputType={'text'} inputName={'username'} placeHolder={'Username'}/>
+                <Input inputType={'text'} inputName={'username'} placeHolder={'Username'} handleInput={handleEmailChange}/>
             </div>
             <div>
                 <Label inputLabel={'Password'}/>
-                <Input inputType={'password'} inputName={'password'} placeHolder={'Password'}/>
+                <Input inputType={'password'} inputName={'password'} placeHolder={'Password'} handleInput={handlePassChange}/>
             </div>
             <div className='mt-4'>
                 <Button btnText={'Log In'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'}/>

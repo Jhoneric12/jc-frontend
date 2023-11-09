@@ -20,6 +20,7 @@ function App() {
         <Suspense fallback={<Loading/>}>
           <Routes>
             <Route path='/' element={<Homepage/>}/>
+            <Route path='/home' element={<Homepage/>}/>
             <Route path='/services' element={<ServicesPage/>}/>
           </Routes>
         </Suspense>

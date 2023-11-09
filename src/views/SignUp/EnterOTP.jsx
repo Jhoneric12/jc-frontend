@@ -10,6 +10,7 @@ const SignUp = lazy(() => import('../../Dialog/Modal'))
 import { useNavigate } from 'react-router-dom'
 import Unlock from '../../assets/LogInAndSignUp/Unlock.png'
 import Loading from '../../Spinners/Loading'
+import ReactCodeInput from 'react-code-input'
 
 function EnterOTP() {
 
@@ -21,8 +22,8 @@ function EnterOTP() {
     const [showDialog, setShowDialog] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
-    const handleInputChange = (e) => {
-        setOTP(e.target.value);
+    const handleInputChange = (value) => {
+        setOTP(value);
     }
 
     // Navigate to Login
@@ -93,8 +94,15 @@ function EnterOTP() {
                 <p className='text-superSmall md:text-xxSmall font-light text-border-color mt-1'>We have sent the OTP in your email address</p>
             </div>
             <div>
-                <Label inputLabel={'Enter OTP'}/>
-                <Input placeHolder={'Enter OTP'} inputType={'text'} center={'text-center'} handleInput={handleInputChange} inputValue={otp}/>
+                {/* <Label inputLabel={'Enter OTP'}/> */}
+                <div className='flex w-full justify-around '>
+                    <ReactCodeInput
+                        fields={6}
+                        type='text'
+                        onChange={handleInputChange}
+                        value={otp}
+                    />
+                </div>
                 <p className='text-[red] text-superSmall mt-1'>{invalidOTP}</p>
                 {
                     errors.map((error, index) => (

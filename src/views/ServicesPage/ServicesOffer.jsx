@@ -1,6 +1,7 @@
 import React from 'react'
 import ServicesOfferData from '../../dummyData/ServicesOfferData'
 import Button from '../../components/Button'
+import { lazy } from 'react'
 
 function ServicesOffer() {
   return (
@@ -9,7 +10,7 @@ function ServicesOffer() {
         {
           ServicesOfferData.map((services) => (
             <div key={services.id} className='bg-puti p-10 rounded-[8px] drop-shadow-lg flex flex-col'>
-                <img src={services.serviceImg} alt="" className='image mb-5 w-full'/>
+                <img src={services.serviceImg} alt="" className='image mb-5 w-full' loading={lazy}/>
                 <h1 className='text-xSmall font-semibold mb-2'>{services.serviceName}</h1>
                 <h1 className='text-small font-bold text-primary-green mb-2 mt-auto'>{services.price}</h1>
                 <p className='text-xxSmall font-light mb-4 '>{services.description}</p>
@@ -18,7 +19,7 @@ function ServicesOffer() {
                   btnText={'Book Appointment'}
                   fontColor={'text-puti'}
                   bgColor={'bg-primary-green'}
-                  width={'w-[100%]'} sdflsfjslkfjslkfj
+                  width={'w-[100%]'}
                   />
                 </div>
             </div>
