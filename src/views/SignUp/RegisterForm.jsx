@@ -74,7 +74,7 @@ function RegisterForm() {
                 <div className='w-full flex flex-col'>
                     <Label inputLabel={'Gender'}/>
                     {/* <Input inputType={'dropdown'} inputName={'gender'} placeHolder={'Gender'}/> */}
-                    <Dropdown select={'-Select Gender-'}options={GenderData}  dropDownName={'gender'} selectedChange={handleInputChange} selectedValue={signUpData.gender}/>
+                    <Dropdown select={'-Select Gender-'} options={GenderData}  dropDownName={'gender'} selectedChange={handleInputChange} selectedValue={signUpData.gender}/>
                 </div>
             </div>
             <div>

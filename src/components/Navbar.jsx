@@ -51,7 +51,7 @@ function Navbar() {
             <img
             src={JcLogo}
             alt="JC's Skin Logo"
-            className='w-[2.5rem] h-[2rem] md:w-[5.5rem] md:h-[3.5rem]'
+            className='w-[3.5rem] h-[3rem] md:w-[5.5rem] md:h-[3.5rem]'
             />
         </div>
         <ul className='nav-links hidden md:flex md:w-[50%] md:justify-around md:text-xxSmall lg:flex lg:justify-around lg:text-sm lg:w-[40%]'>
@@ -81,7 +81,7 @@ function Navbar() {
 
         <div className="burger-container lg:hidden md:hidden">
             <TbMenuDeep
-            className='burger text-primary-green font-extrabold'
+            className='burger text-primary-green font-extrabold w-[2rem] h-[2rem]'
             onClick={openDrawer}
             />
         </div>

@@ -10,7 +10,7 @@ function Input({inputType, inputName, placeHolder, handleInput, inputValue, cent
       placeholder={placeHolder} 
       onChange={handleInput} 
       value={inputValue}
-      className= {`mt-1 font-regular text-font-color border-border-color border px-4 py-2 rounded-[8px] w-full text-xxSmall md:text-xSmall focus:border-primary-green focus:outline-none hover:border-primary-green focus:drop-shadow-md text-border-border-color ${center}`}/>
+      className= {`mt-2 font-regular text-font-color border-border-color border px-4 py-2 rounded-[8px] w-full text-xxSmall md:text-xSmall hover:border-primary-green focus:border-primary-green focus:bg-white focus:ring focus:ring-primary-green focus:ring-opacity-50 ${center}`}/>
     </div>
   )
 }

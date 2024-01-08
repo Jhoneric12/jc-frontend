@@ -25,7 +25,11 @@ module.exports = withMT({
     
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms")({
+      strategy: 'base', // only generate global styles
+    }),
+  ],
 });
 
 

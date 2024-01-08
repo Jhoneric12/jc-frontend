@@ -10,7 +10,6 @@ const SignUp = lazy(() => import('../../Dialog/Modal'))
 import { useNavigate } from 'react-router-dom'
 import Unlock from '../../assets/LogInAndSignUp/Unlock.png'
 import Loading from '../../Spinners/Loading'
-import ReactCodeInput from 'react-code-input'
 
 function EnterOTP() {
 
@@ -22,8 +21,8 @@ function EnterOTP() {
     const [showDialog, setShowDialog] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
-    const handleInputChange = (value) => {
-        setOTP(value);
+    const handleInputChange = (e) => {
+        setOTP(e.target.value);
     }
 
     // Navigate to Login
@@ -94,19 +93,12 @@ function EnterOTP() {
                 <p className='text-superSmall md:text-xxSmall font-light text-border-color mt-1'>We have sent the OTP in your email address</p>
             </div>
             <div>
-                {/* <Label inputLabel={'Enter OTP'}/> */}
-                <div className='flex w-full justify-around '>
-                    <ReactCodeInput
-                        fields={6}
-                        type='text'
-                        onChange={handleInputChange}
-                        value={otp}
-                    />
-                </div>
+                <Label inputLabel={'Enter OTP'}/>
+                <Input placeHolder={'OTP'} inputType={'text'} center={'text-center'} handleInput={handleInputChange} inputValue={otp}/>
                 <p className='text-[red] text-superSmall mt-1'>{invalidOTP}</p>
                 {
                     errors.map((error, index) => (
-                        <li className='text-[red] text-superSmall mt-1' key={index}>{error}</li>
+                        <li className='text-[red] text-superSmall mt-0' key={index}>{error}</li>
                     ))
                 }
                 <p className='text-[0.625rem] mt-2 mb-4 md:text-superSmall'>Didn't received a code?</p>

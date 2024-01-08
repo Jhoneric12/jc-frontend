@@ -7,12 +7,24 @@ import FormTitle from '../../components/FormTitle'
 import HeaderLogo from '../../components/HeaderLogo'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import Loading from '../../Spinners/Loading'
+import { useNavigate } from 'react-router-dom'
+import { useLoginStore } from '../../hooks/LoginSignUp/userLoginDataStore'
 
 function LogInForm() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loginError, setError] = useState('');
+    const [isLoading, setLoading] = useState(false);
+    const [validationError, setValError] = useState([]);
 
+    const loginData = useLoginStore();
+
+    const navigate = useNavigate();
+    const navigateDashboard = () => {
+        navigate('/patient/dashboard');
+    }
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     }
@@ -22,17 +34,46 @@ function LogInForm() {
     }
 
     const handleSubmit = async(e) => {
+        setLoading(true);
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:8000/api/login', {
-                email: email,
+                username: email,
                 password: password
             });
 
-            const token = response.data.token;
+            // Navigate to Login form, when credentials are correct
+            if (response.status === 200) {
+                setLoading(false);
+                navigateDashboard();
+                loginData.patient_id = response.data.patient.patient_id;
+                loginData.username = response.data.patient.username;
+                loginData.first_name = response.data.patient.first_name;
+                const token = response.data.patient.token;
+                localStorage.setItem('token', JSON.stringify(token));
+                localStorage.setItem('first_name', response.data.patient.first_name);
+                localStorage.setItem('username', response.data.patient.username);
+                localStorage.setItem('patient_id', response.data.patient.patient_id);
+            }
+            console.log(response);
+            console.log(loginData);
 
         }
         catch (err) {
+
+            if (err.response && err.response.status === 401) {
+                setLoading(false);
+                const lgError = err.response.data.message;
+                setError(lgError);
+                setValError([]);
+            }
+            if (err.response && err.response.status === 422) {
+                const validationErrors = err.response.data.errors
+                const errorArray = Object.values(validationErrors).flat();
+                setValError(errorArray);
+                setLoading(false);
+                setError([]);
+            }
             console.log(err)
         }
     }
@@ -54,19 +95,32 @@ function LogInForm() {
             </div>
             <div>
                 <Label inputLabel={'Username'}/>
-                <Input inputType={'text'} inputName={'username'} placeHolder={'Username'} handleInput={handleEmailChange}/>
+                <Input inputType={'text'} inputName={'username'} placeHolder={'Enter Username'} handleInput={handleEmailChange}/>
             </div>
             <div>
                 <Label inputLabel={'Password'}/>
-                <Input inputType={'password'} inputName={'password'} placeHolder={'Password'} handleInput={handlePassChange}/>
+                <Input inputType={'password'} inputName={'password'} placeHolder={'Enter Password'} handleInput={handlePassChange}/>
             </div>
+            {
+                validationError.map((error, index) => (
+                    <li className='text-[red] text-superSmall mt-0' key={index}>{error}</li>
+                ))
+            }
+            <p className='text-[red] text-superSmall mt-0'>{loginError}</p>
             <div className='mt-4'>
-                <Button btnText={'Log In'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'}/>
+                <Button btnText={'Log In'} bgColor={'bg-primary-green'} width={'w-full'} borderRound={'rounded-[4px]'} fontColor={'text-puti'} handleClick={handleSubmit}/>
             </div>
             <div>
                 <li className='text-superSmall list-none'>Don't Have an Account? <span className='text-primary-green'><Link to={'/signup'}>Resigster</Link></span></li>
             </div>
         </form>
+        {
+            isLoading && (
+                <div className='flex h-screen justify-center items-center absolute top-0 bottom-0 right-0 left-0 z-50 backdrop-blur-sm'> 
+                    <Loading/>
+                </div>
+            )
+        }
     </section>
   )
 }
