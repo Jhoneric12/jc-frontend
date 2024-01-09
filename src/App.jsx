@@ -12,8 +12,10 @@ import SendOTPpage from './pages/SendOTPpage'
 import EnterOTPpage from './pages/EnterOTPpage'
 import Loading from './Spinners/Loading'
 import { ProtectedRoutes } from './Route/ProtectedRoute'
+import {AdminRoutes} from './Route/AdminRoute'
 import PatientDashboard from './views/Dashboard/PatientDashboard'
 import AdminLogin from './views/Admin/Login'
+import AdminDashboard from './views/Admin/Dashboard'
 
 function App() {
 
@@ -41,6 +43,14 @@ function App() {
         <Routes>
           <Route element={<ProtectedRoutes/>} >
             <Route path='/patient/dashboard' element={<PatientDashboard/>}/>
+          </Route>
+        </Routes>
+
+        
+        {/* Admin Routes */}
+        <Routes>
+          <Route element={<AdminRoutes/>}>
+            <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
           </Route>
         </Routes>
       </Router>
