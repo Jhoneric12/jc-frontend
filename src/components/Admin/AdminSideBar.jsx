@@ -1,28 +1,21 @@
 import React from 'react'
 import {Card,Typography,List,ListItem,ListItemPrefix,ListItemSuffix,Chip,} from "@material-tailwind/react";
-import { useLoginStore } from '../hooks/LoginSignUp/userLoginDataStore';
-import { useNavigate } from 'react-router-dom';
 // import jclogo from '../../assets/HomepageImg/jcslogo.png'
-import user from '../assets/HomepageImg/user-128-32.png'
+import user from '../../assets/HomepageImg/user-128-32.png'
 import { MdOutlineSpaceDashboard } from "react-icons/md"
 import { LuCalendar } from "react-icons/lu";
 import { FaUserDoctor } from "react-icons/fa6";
 import { RiHealthBookLine } from "react-icons/ri";
 import { IoIosSettings } from "react-icons/io";
 import { BiLogOut } from "react-icons/bi";
+import { MdOutlineInventory2 } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 function SideBar({firstName, id, handleLogOut}) {
 
-    const loginData = useLoginStore();
-
   return (
-    <Card className="h-screen w-full max-w-[20rem] p-2 shadow-xl shadow-blue-gray-900/5 border-r border border-border-color rounded-none">
-          {/* <div className=" p-4">
-            <div>
-                <img src={jclogo} alt="" className='w-[5rem] h-[4rem]'/>
-            </div>
-          </div> */}
-          <div className='mb-8 p-6'>
+    <Card className="overflow-y-auto sticky top-0 h-screen  max-w-[20rem] shadow-xl shadow-blue-gray-900/5 border-r border border-border-color rounded-none">
+          <div className=' mb-4 px-8 py-10 border-b border-solid border-[#C1C1C1]'>
             <div className='flex gap-6 items-center'>
                 <img src={user} alt="" className='rounded-full border-2 border-solid border-black w-[4rem] h-[4rem]'/>
             <div>
@@ -33,27 +26,31 @@ function SideBar({firstName, id, handleLogOut}) {
             </div>
             </div>
           </div>
-          <List>
-            <ListItem className='focus:bg-primary-green focus:text-puti'>
-              <ListItemPrefix>
-                {/* <PresentationChartBarIcon className="h-5 w-5" /> */}
-                <MdOutlineSpaceDashboard className='h-5 w-5'/>
-              </ListItemPrefix>
-              Dashboard
-            </ListItem>
-            <ListItem className='focus:bg-primary-green focus:text-puti'>
-              <ListItemPrefix>
-                {/* <ShoppingBagIcon className="h-5 w-5" /> */}
-                <LuCalendar className='h-5 w-5'/>
-              </ListItemPrefix>
-              My Appointments
-            </ListItem>
+          <List className='px-2'>
+            <Link to={'/admin/dashboard'}>
+                <ListItem className='focus:bg-primary-green focus:text-puti'>
+                <ListItemPrefix>
+                    {/* <PresentationChartBarIcon className="h-5 w-5" /> */}
+                    <MdOutlineSpaceDashboard className='h-5 w-5'/>
+                </ListItemPrefix>
+                Dashboard
+                </ListItem>
+            </Link>
+            <Link to={'/admin/patients'}>
+                <ListItem className='focus:bg-primary-green focus:text-puti'>
+                <ListItemPrefix>
+                    {/* <ShoppingBagIcon className="h-5 w-5" /> */}
+                    <FaUserDoctor className='h-5 w-5'/>
+                </ListItemPrefix>
+                Patients
+                </ListItem>
+            </Link>
             <ListItem className='focus:bg-primary-green focus:text-puti'>
               <ListItemPrefix>
                 {/* <InboxIcon className="h-5 w-5" /> */}
-                <FaUserDoctor className='h-5 w-5'/>
+                <LuCalendar className='h-5 w-5'/>
               </ListItemPrefix>
-              Doctors
+              Appointments
               <ListItemSuffix>
                 {/* <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" /> */}
               </ListItemSuffix>
@@ -63,7 +60,14 @@ function SideBar({firstName, id, handleLogOut}) {
                 {/* <UserCircleIcon className="h-5 w-5" /> */}
                 <RiHealthBookLine className='h-5 w-5'/> 
               </ListItemPrefix>
-              Services
+              Transactions
+            </ListItem>
+            <ListItem className='focus:bg-primary-green focus:text-puti'>
+              <ListItemPrefix>
+                {/* <Cog6ToothIcon className="h-5 w-5" /> */}
+                <MdOutlineInventory2 className='h-5 w-5'/>
+              </ListItemPrefix>
+              Inventory
             </ListItem>
             <ListItem className='focus:bg-primary-green focus:text-puti'>
               <ListItemPrefix>

@@ -2,13 +2,26 @@ import React from 'react'
 import Input from '../../components/Input';
 import Services from '../../assets/PatientDashboard/Services.png'
 import SideBar from '../../components/SideBar';
+import { useNavigate } from 'react-router-dom';
 
 function PatientDashboard() {
+
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('first_name');
+    localStorage.removeItem('patient_id');
+    navigate('/login');
+}
 
     return (
         <section className='flex'>
           <div className='w-[20%]'>
-            <SideBar/>
+            <SideBar
+              firstName={localStorage.getItem('first_name')}
+              id={localStorage.getItem('patient_id')}
+              handleLogOut={handleLogOut}
+            />
           </div>
         <div className='w-[80%] p-10 flex flex-col gap-6'>
           <h1 className='text-font-color text-medium font-semibold'>Home</h1>

@@ -16,6 +16,7 @@ import {AdminRoutes} from './Route/AdminRoute'
 import PatientDashboard from './views/Dashboard/PatientDashboard'
 import AdminLogin from './views/Admin/Login'
 import AdminDashboard from './views/Admin/Dashboard'
+import Patients from './views/Admin/Patients'
 
 function App() {
 
@@ -47,10 +48,11 @@ function App() {
         </Routes>
 
         
-        {/* Admin Routes */}
+        {/* Protected Admin Routes  */}
         <Routes>
           <Route element={<AdminRoutes/>}>
             <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
+            <Route path='/admin/patients' element={<Patients/>}/>
           </Route>
         </Routes>
       </Router>
